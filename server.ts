@@ -43,6 +43,9 @@ function parseValidWebhookUrl(raw?: string): string | null {
   try {
     const parsed = new URL(trimmed);
     if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      if (parsed.hostname === 'docs.google.com' && parsed.pathname.includes('/spreadsheets')) {
+        return null;
+      }
       return parsed.toString();
     }
     return null;
@@ -51,14 +54,33 @@ function parseValidWebhookUrl(raw?: string): string | null {
   }
 }
 
+function getWebhookDiagnostic(raw?: string): string | undefined {
+  const trimmed = raw?.trim();
+  if (!trimmed) return undefined;
+  try {
+    const parsed = new URL(trimmed);
+    if (parsed.hostname === 'docs.google.com' && parsed.pathname.includes('/spreadsheets')) {
+      return 'CRM_WEBHOOK_URL is set to a Google Sheet viewer link (docs.google.com). Replace it with your Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec).';
+    }
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+      return 'CRM_WEBHOOK_URL must start with https://';
+    }
+    return undefined;
+  } catch {
+    return 'CRM_WEBHOOK_URL is not a valid URL (use the full https://script.google.com/macros/s/.../exec URL).';
+  }
+}
+
 async function startServer() {
   const app = express();
   app.use(express.json({ limit: '100kb' }));
 
   app.get('/api/health', (_req, res) => {
+    const crmIssue = getWebhookDiagnostic(process.env.CRM_WEBHOOK_URL);
     res.json({
       ok: true,
       crmConfigured: Boolean(parseValidWebhookUrl(process.env.CRM_WEBHOOK_URL)),
+      ...(crmIssue ? { crmIssue } : {}),
     });
   });
 
@@ -105,6 +127,17 @@ async function startServer() {
 
         if (!crmResponse.ok) {
           throw new Error(`CRM webhook returned HTTP ${crmResponse.status}`);
+        }
+
+        const finalUrl = crmResponse.url || '';
+        const responseContentType = (crmResponse.headers.get('content-type') || '').toLowerCase();
+        if (
+          finalUrl.includes('accounts.google.com') ||
+          responseContentType.includes('text/html')
+        ) {
+          throw new Error(
+            'CRM webhook returned a sign-in or HTML error page instead of accepting the lead. Ensure Google Apps Script Web App access is set to "Anyone".'
+          );
         }
 
         await persistEnquiryLocally({
