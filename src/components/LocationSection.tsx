@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { MapPin, Navigation } from 'lucide-react';
-import { LOCATION_NODES } from '../data/aranyaData';
-import { AranyaGoogleMap } from './AranyaGoogleMap';
+import { ExternalLink, MapPin, Navigation } from 'lucide-react';
+import { BRAND_INFO, LOCATION_NODES } from '../data/aranyaData';
 
 const MAP_STOPS = [
   {
@@ -241,8 +240,36 @@ export function LocationSection() {
           </div>
         </div>
 
-        {/* Interactive Google Maps Widget (Silpa Aranya, Mirzapur) */}
-        <AranyaGoogleMap />
+        {/* Exact Site Address & One-Tap Google Maps Directions */}
+        <div className="mt-10 bg-[#F5F3EC] border border-[#1F3527]/15 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#4D6150]">
+              <MapPin className="h-3.5 w-3.5 text-[#B5945B]" aria-hidden="true" />
+              <span>Exact Site Location · Plus Code {BRAND_INFO.sitePlusCode}</span>
+            </div>
+            <h3 className="mt-1.5 font-display text-2xl sm:text-3xl font-medium text-[#141815]">
+              SILPA ARANYA — Mirzapur, Telangana 501102
+            </h3>
+            <p className="mt-1.5 text-sm text-[#141815]/80">
+              {BRAND_INFO.siteAddress} · Off Chevella–Manneguda Rd (NH-163)
+            </p>
+            <p className="mt-1 text-xs text-[#4D6150] tabular-nums">
+              Coordinates: {BRAND_INFO.siteCoordinates.lat}, {BRAND_INFO.siteCoordinates.lng} · ~1 hr
+              drive from Gachibowli
+            </p>
+          </div>
+
+          <a
+            href={BRAND_INFO.googleMapsDirectionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-[#1F3527] text-[#F5F3EC] px-6 min-h-[48px] text-xs font-semibold uppercase tracking-[0.14em] whitespace-nowrap shrink-0 hover:bg-[#141815] transition-colors"
+          >
+            <Navigation className="h-4 w-4 text-[#B5945B]" aria-hidden="true" />
+            <span>Open Directions in Google Maps</span>
+            <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   );
