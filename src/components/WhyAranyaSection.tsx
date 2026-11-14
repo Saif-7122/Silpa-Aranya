@@ -30,7 +30,7 @@ const PILLARS = [
     category: 'Weekend Escape',
     title: 'A Private Getaway 1 Hr from Gachibowli',
     summary:
-      'Enjoy pure red laterite soil, 12 fruit-tree varieties on your plot, a Goshala, bonfire lawns, and a 17,000 sq. ft. clubhouse—without travelling far.',
+      'Enjoy pure red laterite soil, 12 fruit-tree varieties on your plot, a Goshala, bonfire lawns, and a 10,000 sq. ft. clubhouse—without travelling far.',
     detail:
       'Ananthagiri Hills is just ~17 km past Manneguda for quick morning drives and forest walks.',
     image: '/assets/brochure/harvest-cafe.jpg',
@@ -79,7 +79,7 @@ export function WhyAranyaSection({ onOpenEnquiry }: WhyAranyaSectionProps) {
                 For Your Family
               </p>
               <p className="mt-2.5 text-sm leading-relaxed text-[#E6E0D3]/85">
-                Clean air, home-grown fruits, a 17,000 sq. ft. clubhouse, and safe open lawns where
+                Clean air, home-grown fruits, a 10,000 sq. ft. clubhouse, and safe open lawns where
                 children and elders can unwind every weekend.
               </p>
             </div>

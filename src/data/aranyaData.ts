@@ -111,7 +111,7 @@ export const HERO_METRICS: ProjectMetric[] = [
   },
   {
     id: 'clubhouse',
-    value: '17,000 Sq. Ft.',
+    value: '10,000 Sq. Ft.',
     label: 'Clubhouse & Pool',
     detail: 'Swimming pool, farm-fresh dining, indoor games, and family lawns',
   },
@@ -221,9 +221,9 @@ export const AMENITY_CLUSTERS: AmenityCluster[] = [
   {
     id: 'clubhouse',
     title: 'Clubhouse & Organic Dining',
-    subtitle: '17,000 Sq. Ft. Clubhouse with Swimming Pool',
+    subtitle: '10,000 Sq. Ft. Clubhouse with Swimming Pool',
     items: [
-      '17,000 Sq. Ft. Clubhouse with Swimming Pool',
+      '10,000 Sq. Ft. Clubhouse with Swimming Pool',
       'Fresh farm-to-table organic dining area',
       'Traditional woodfire cooking experiences',
       'Warm stone courtyard seating for neighbours & friends',
@@ -354,7 +354,7 @@ export const CORRIDOR_COMPARISON = [
   {
     zone: 'ARANYA — 112-Acre Farm Community (Near Manneguda)',
     indicativeRange: '₹11,999 / Sq. Yd. (Starting Base)',
-    context: 'Plots from 514 sq. yds. with 12 fruit trees, drip lines, 33/50 ft BT roads & 17,000 sq. ft. clubhouse.',
+    context: 'Plots from 514 sq. yds. with 12 fruit trees, drip lines, 33/50 ft BT roads & 10,000 sq. ft. clubhouse.',
     note: 'Indicative starting figure from project info-sheet; confirm final plot & home price with our team.',
   },
 ];
@@ -389,13 +389,13 @@ export const MASTERPLAN_ZONES: MasterplanZone[] = [
   {
     id: 'clubhouse',
     code: '03',
-    title: '17,000 Sq. Ft. Clubhouse & Pool',
+    title: '10,000 Sq. Ft. Clubhouse & Pool',
     category: 'Community Centre',
     xPercent: 72,
     yPercent: 34,
     summary:
       'The social heart for swimming, dining, indoor games, and family celebrations — construction is visibly underway on site.',
-    specs: ['17,000 Sq. Ft. Clubhouse (Brochure)', 'Swimming Pool & Dining', 'Indoor Games & Event Lawn'],
+    specs: ['10,000 Sq. Ft. Clubhouse', 'Swimming Pool & Dining', 'Indoor Games & Event Lawn'],
     image: '/assets/brochure/site-clubhouse-actual.jpg',
     mediaType: 'actual-site',
   },
@@ -494,7 +494,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g-club-hub',
     title: 'Clubhouse Gathering Courtyard',
-    caption: 'Friendly stone seating around the 17,000 sq. ft. Clubhouse.',
+    caption: 'Friendly stone seating around the 10,000 sq. ft. Clubhouse.',
     category: 'Clubhouse & Fun',
     mediaType: 'brochure',
     image: '/assets/brochure/clubhouse-hub.jpg',
@@ -603,7 +603,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'weekend-home',
     question: 'Why does it work well as a weekend home?',
     answer:
-      'Every plot has red laterite soil, 12 fruit-tree varieties, and drip water lines. Plus, families get a 17,000 sq. ft. clubhouse with swimming pool, Panchatatva walking trail, Goshala with Punganur cows, bonfire lawns, sports courts, and open-air workstations.',
+      'Every plot has red laterite soil, 12 fruit-tree varieties, and drip water lines. Plus, families get a 10,000 sq. ft. clubhouse with swimming pool, Panchatatva walking trail, Goshala with Punganur cows, bonfire lawns, sports courts, and open-air workstations.',
   },
   {
     id: 'hyderabad-connectivity',
