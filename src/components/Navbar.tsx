@@ -5,12 +5,13 @@ interface NavbarProps {
   onOpenEnquiry: (source: string) => void;
 }
 
-const NAV_LINKS = [
+const NAV_LINKS: Array<{ label: string; href: string; external?: boolean }> = [
   { label: 'Overview', href: '#overview' },
   { label: 'Weekend Life', href: '#experience' },
   { label: 'Location', href: '#location' },
   { label: 'Price & Growth', href: '#investment' },
   { label: 'Photos', href: '#gallery' },
+  { label: '3D Walkthrough', href: '/virtual-tour/index.html', external: true },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -45,11 +46,13 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
         </a>
 
         {/* Zone 2: Clean Single-Line Nav Links */}
-        <nav aria-label="Primary Navigation" className="hidden xl:flex items-center gap-7">
+        <nav aria-label="Primary Navigation" className="hidden xl:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
               className={`text-sm font-medium tracking-wide whitespace-nowrap shrink-0 underline-offset-8 transition-colors hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B5945B] ${
                 scrolled ? 'text-[#141815]/85 hover:text-[#1F3527]' : 'text-[#F5F3EC]/90 hover:text-white'
               }`}
@@ -100,6 +103,8 @@ export function Navbar({ onOpenEnquiry }: NavbarProps) {
               <a
                 key={link.href}
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 onClick={() => setMobileOpen(false)}
                 className="py-3 min-h-[44px] flex items-center text-base font-medium text-[#141815] border-b border-[#1F3527]/10"
               >

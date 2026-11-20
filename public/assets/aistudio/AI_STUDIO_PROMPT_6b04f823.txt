@@ -1,0 +1,41 @@
+Paste this into Google AI Studio (Build) after uploading the files from this zip.
+
+------------------------------------------------------------
+
+I am adding a ready-made 3D virtual tour to this landing page. Do NOT recreate, rewrite or "improve" the tour. Use the files exactly as provided.
+
+Files I am giving you:
+1. public/virtual-tour/index.html  (a complete, self-contained 3D tour page, about 400 KB)
+2. components/VirtualTour.tsx      (a React component that shows the tour in an iframe)
+
+Please do the following:
+
+1. Put public/virtual-tour/index.html in the project so it is served at the URL /virtual-tour/index.html.
+   - If the project has a "public" folder, put it at public/virtual-tour/index.html.
+   - If it does not, put it at virtual-tour/index.html in the project root so the same URL works.
+   - Copy the file byte for byte. Do not reformat it, do not split it, do not convert it to React.
+
+2. Add components/VirtualTour.tsx to the project as it is.
+
+3. Add a new tab (or navigation item) called "3D Walkthrough".
+   - When the visitor opens this tab, render <VirtualTour /> full width.
+   - Keep the rest of the page and its existing tabs unchanged.
+   - The tab should also be reachable by the URL hash #virtual-tour so I can link straight to it.
+
+4. Add a button in the hero section: "Take the 3D virtual tour". Clicking it opens the 3D Walkthrough tab and scrolls to it.
+
+5. Load these Google Fonts in the page head if they are not already there (they match the Aranya brochure):
+   https://fonts.googleapis.com/css2?family=Marcellus&family=Outfit:wght@300;400;500;600;700&display=swap
+
+6. Do not add any Content Security Policy that blocks these, because the tour needs them:
+   - scripts from https://cdn.jsdelivr.net (three.js)
+   - fonts from https://fonts.googleapis.com and https://fonts.gstatic.com
+   - the iframe must be allowed to run scripts and use WebGL
+
+7. After the change, open the 3D Walkthrough tab and confirm the tour loads (you should see "Silpa Aranya" and a fly-in over a 3D map).
+
+------------------------------------------------------------
+
+If AI Studio cannot serve the HTML file:
+Host the folder "public/virtual-tour" anywhere static (for example, drag it onto https://app.netlify.com/drop), copy the URL it gives you, and tell AI Studio:
+"Use <VirtualTour src=\"PASTE-URL-HERE/index.html\" />".

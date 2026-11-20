@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowDownRight, PhoneCall } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, PhoneCall } from 'lucide-react';
 import { BRAND_INFO, HERO_METRICS } from '../data/aranyaData';
 import { EnquiryForm } from './EnquiryForm';
 
@@ -47,6 +47,16 @@ export function HeroSection() {
               </p>
 
               <div className="mt-5 sm:mt-7 flex flex-wrap items-center gap-3">
+                <a
+                  href="/virtual-tour/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-[#F5F3EC] bg-[#F5F3EC] text-[#141815] px-5 sm:px-6 min-h-[44px] sm:min-h-[48px] text-xs font-semibold tracking-[0.14em] uppercase whitespace-nowrap shrink-0 transition-colors duration-200 hover:bg-[#E6E0D3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5945B]"
+                >
+                  3D Walkthrough
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+
                 <a
                   href="#overview"
                   className="inline-flex items-center gap-2 border border-[#F5F3EC]/50 bg-[#141815]/50 backdrop-blur-sm text-[#F5F3EC] px-5 sm:px-6 min-h-[44px] sm:min-h-[48px] text-xs font-semibold tracking-[0.14em] uppercase whitespace-nowrap shrink-0 transition-colors duration-200 hover:bg-[#F5F3EC] hover:text-[#141815] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B5945B]"

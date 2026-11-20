@@ -73,6 +73,16 @@ export function Footer({ onOpenEnquiry }: FooterProps) {
                   Layout &amp; Amenities
                 </a>
               </li>
+              <li>
+                <a
+                  href="/virtual-tour/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  3D Walkthrough
+                </a>
+              </li>
             </ul>
           </div>
 
